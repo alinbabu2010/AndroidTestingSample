@@ -25,6 +25,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.plcoding.cleanarchitecturenoteapp.feature_note.domain.model.Note
 import com.plcoding.cleanarchitecturenoteapp.feature_note.presentation.add_edit_note.components.TransparentHintTextField
+import com.plcoding.cleanarchitecturenoteapp.utils.TestTags
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -120,6 +121,7 @@ fun AddEditNoteScreen(
             TransparentHintTextField(
                 text = titleState.text,
                 hint = titleState.hint,
+                testTag = TestTags.TITLE_TEXT_FIELD,
                 onValueChange = {
                     viewModel.onEvent(AddEditNoteEvent.EnteredTitle(it))
                 },
@@ -134,6 +136,7 @@ fun AddEditNoteScreen(
             TransparentHintTextField(
                 text = contentState.text,
                 hint = contentState.hint,
+                testTag = TestTags.CONTENT_TEXT_FIELD,
                 onValueChange = {
                     viewModel.onEvent(AddEditNoteEvent.EnteredContent(it))
                 },
